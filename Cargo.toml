@@ -30,6 +30,7 @@ rand_core = { version = "0.6.2", default-features = false, optional = true }
 serde_crate = { package = "serde", version = "1.0.123", default-features = false, optional = true }
 serde_bytes = { version = "0.11.5", optional = true }
 zeroize = { version = "1.2.0", default-features = false, features = ["zeroize_derive"] }
+blake2 = "0.9.1"
 
 [dev-dependencies]
 hex = "0.4.2"
