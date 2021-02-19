@@ -12,12 +12,12 @@
 use core::convert::TryFrom;
 use core::fmt::Debug;
 
-use curve25519_dalek::constants;
-use curve25519_dalek::digest::generic_array::typenum::U64;
-use curve25519_dalek::digest::Digest;
-use curve25519_dalek::edwards::CompressedEdwardsY;
-use curve25519_dalek::edwards::EdwardsPoint;
-use curve25519_dalek::scalar::Scalar;
+use curve25519_dalek_ng::constants;
+use curve25519_dalek_ng::digest::generic_array::typenum::U64;
+use curve25519_dalek_ng::digest::Digest;
+use curve25519_dalek_ng::edwards::CompressedEdwardsY;
+use curve25519_dalek_ng::edwards::EdwardsPoint;
+use curve25519_dalek_ng::scalar::Scalar;
 
 use ed25519::signature::Verifier;
 
@@ -94,17 +94,17 @@ impl PublicKey {
     /// # Warning
     ///
     /// The caller is responsible for ensuring that the bytes passed into this
-    /// method actually represent a `curve25519_dalek::curve::CompressedEdwardsY`
+    /// method actually represent a `curve25519_dalek_ng::curve::CompressedEdwardsY`
     /// and that said compressed point is actually a point on the curve.
     ///
     /// # Example
     ///
     /// ```
-    /// # extern crate ed25519_dalek;
+    /// # extern crate ed25519_dalek_blake2b;
     /// #
-    /// use ed25519_dalek::PublicKey;
-    /// use ed25519_dalek::PUBLIC_KEY_LENGTH;
-    /// use ed25519_dalek::SignatureError;
+    /// use ed25519_dalek_blake2b::PublicKey;
+    /// use ed25519_dalek_blake2b::PUBLIC_KEY_LENGTH;
+    /// use ed25519_dalek_blake2b::SignatureError;
     ///
     /// # fn doctest() -> Result<PublicKey, SignatureError> {
     /// let public_key_bytes: [u8; PUBLIC_KEY_LENGTH] = [

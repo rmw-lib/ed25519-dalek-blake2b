@@ -11,11 +11,11 @@
 
 use core::fmt::Debug;
 
-use curve25519_dalek::constants;
-use curve25519_dalek::digest::generic_array::typenum::U64;
-use curve25519_dalek::digest::Digest;
-use curve25519_dalek::edwards::CompressedEdwardsY;
-use curve25519_dalek::scalar::Scalar;
+use curve25519_dalek_ng::constants;
+use curve25519_dalek_ng::digest::generic_array::typenum::U64;
+use curve25519_dalek_ng::digest::Digest;
+use curve25519_dalek_ng::edwards::CompressedEdwardsY;
+use curve25519_dalek_ng::scalar::Scalar;
 
 #[cfg(feature = "rand")]
 use rand::{CryptoRng, RngCore};
@@ -74,11 +74,11 @@ impl SecretKey {
     /// # Example
     ///
     /// ```
-    /// # extern crate ed25519_dalek;
+    /// # extern crate ed25519_dalek_blake2b;
     /// #
-    /// use ed25519_dalek::SecretKey;
-    /// use ed25519_dalek::SECRET_KEY_LENGTH;
-    /// use ed25519_dalek::SignatureError;
+    /// use ed25519_dalek_blake2b::SecretKey;
+    /// use ed25519_dalek_blake2b::SECRET_KEY_LENGTH;
+    /// use ed25519_dalek_blake2b::SignatureError;
     ///
     /// # fn doctest() -> Result<SecretKey, SignatureError> {
     /// let secret_key_bytes: [u8; SECRET_KEY_LENGTH] = [
@@ -122,15 +122,15 @@ impl SecretKey {
     ///
     /// ```
     /// extern crate rand;
-    /// extern crate ed25519_dalek;
+    /// extern crate ed25519_dalek_blake2b;
     ///
     /// # #[cfg(feature = "std")]
     /// # fn main() {
     /// #
     /// use rand::rngs::OsRng;
-    /// use ed25519_dalek::PublicKey;
-    /// use ed25519_dalek::SecretKey;
-    /// use ed25519_dalek::Signature;
+    /// use ed25519_dalek_blake2b::PublicKey;
+    /// use ed25519_dalek_blake2b::SecretKey;
+    /// use ed25519_dalek_blake2b::Signature;
     ///
     /// let mut csprng = OsRng{};
     /// let secret_key: SecretKey = SecretKey::generate(&mut csprng);
@@ -144,14 +144,14 @@ impl SecretKey {
     ///
     /// ```
     /// # extern crate rand;
-    /// # extern crate ed25519_dalek;
+    /// # extern crate ed25519_dalek_blake2b;
     /// #
     /// # fn main() {
     /// #
     /// # use rand::rngs::OsRng;
-    /// # use ed25519_dalek::PublicKey;
-    /// # use ed25519_dalek::SecretKey;
-    /// # use ed25519_dalek::Signature;
+    /// # use ed25519_dalek_blake2b::PublicKey;
+    /// # use ed25519_dalek_blake2b::SecretKey;
+    /// # use ed25519_dalek_blake2b::Signature;
     /// #
     /// # let mut csprng = OsRng{};
     /// # let secret_key: SecretKey = SecretKey::generate(&mut csprng);
@@ -250,12 +250,12 @@ impl<'a> From<&'a SecretKey> for ExpandedSecretKey {
     /// ```
     /// # extern crate rand;
     /// # extern crate sha2;
-    /// # extern crate ed25519_dalek;
+    /// # extern crate ed25519_dalek_blake2b;
     /// #
     /// # fn main() {
     /// #
     /// use rand::rngs::OsRng;
-    /// use ed25519_dalek::{SecretKey, ExpandedSecretKey};
+    /// use ed25519_dalek_blake2b::{SecretKey, ExpandedSecretKey};
     ///
     /// let mut csprng = OsRng{};
     /// let secret_key: SecretKey = SecretKey::generate(&mut csprng);
@@ -296,13 +296,13 @@ impl ExpandedSecretKey {
     /// ```
     /// # extern crate rand;
     /// # extern crate sha2;
-    /// # extern crate ed25519_dalek;
+    /// # extern crate ed25519_dalek_blake2b;
     /// #
     /// # #[cfg(feature = "std")]
     /// # fn main() {
     /// #
     /// use rand::rngs::OsRng;
-    /// use ed25519_dalek::{SecretKey, ExpandedSecretKey};
+    /// use ed25519_dalek_blake2b::{SecretKey, ExpandedSecretKey};
     ///
     /// let mut csprng = OsRng{};
     /// let secret_key: SecretKey = SecretKey::generate(&mut csprng);
@@ -336,16 +336,16 @@ impl ExpandedSecretKey {
     /// ```
     /// # extern crate rand;
     /// # extern crate sha2;
-    /// # extern crate ed25519_dalek;
+    /// # extern crate ed25519_dalek_blake2b;
     /// #
-    /// # use ed25519_dalek::{ExpandedSecretKey, SignatureError};
+    /// # use ed25519_dalek_blake2b::{ExpandedSecretKey, SignatureError};
     /// #
     /// # #[cfg(feature = "std")]
     /// # fn do_test() -> Result<ExpandedSecretKey, SignatureError> {
     /// #
     /// use rand::rngs::OsRng;
-    /// use ed25519_dalek::{SecretKey, ExpandedSecretKey};
-    /// use ed25519_dalek::SignatureError;
+    /// use ed25519_dalek_blake2b::{SecretKey, ExpandedSecretKey};
+    /// use ed25519_dalek_blake2b::SignatureError;
     ///
     /// let mut csprng = OsRng{};
     /// let secret_key: SecretKey = SecretKey::generate(&mut csprng);

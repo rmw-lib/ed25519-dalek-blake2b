@@ -19,13 +19,13 @@ use std::vec::Vec;
 use core::convert::TryFrom;
 use core::iter::once;
 
-use curve25519_dalek::constants;
-use curve25519_dalek::edwards::EdwardsPoint;
-use curve25519_dalek::scalar::Scalar;
-use curve25519_dalek::traits::IsIdentity;
-use curve25519_dalek::traits::VartimeMultiscalarMul;
+use curve25519_dalek_ng::constants;
+use curve25519_dalek_ng::edwards::EdwardsPoint;
+use curve25519_dalek_ng::scalar::Scalar;
+use curve25519_dalek_ng::traits::IsIdentity;
+use curve25519_dalek_ng::traits::VartimeMultiscalarMul;
 
-pub use curve25519_dalek::digest::Digest;
+pub use curve25519_dalek_ng::digest::Digest;
 
 use merlin::Transcript;
 
@@ -193,14 +193,14 @@ fn zero_rng() -> ZeroRng {
 /// # Examples
 ///
 /// ```
-/// extern crate ed25519_dalek;
+/// extern crate ed25519_dalek_blake2b;
 /// extern crate rand;
 ///
-/// use ed25519_dalek::verify_batch;
-/// use ed25519_dalek::Keypair;
-/// use ed25519_dalek::PublicKey;
-/// use ed25519_dalek::Signer;
-/// use ed25519_dalek::Signature;
+/// use ed25519_dalek_blake2b::verify_batch;
+/// use ed25519_dalek_blake2b::Keypair;
+/// use ed25519_dalek_blake2b::PublicKey;
+/// use ed25519_dalek_blake2b::Signer;
+/// use ed25519_dalek_blake2b::Signature;
 /// use rand::rngs::OsRng;
 ///
 /// # fn main() {
